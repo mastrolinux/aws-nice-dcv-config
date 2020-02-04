@@ -1,0 +1,31 @@
+#!/bin/sh
+# NICE Desktop Cloud Visualization Init script
+
+xsetroot -solid grey
+
+XTERM_COMMAND="xterm -geometry 80x24+10+10 -ls"
+SESSIONBIN=""
+
+if [ -x /etc/X11/Xsession ]; then
+    SESSIONBIN="/etc/X11/Xsession"
+elif [ -x /etc/X11/xdm/Xsession ]; then
+    SESSIONBIN="/etc/X11/xdm/Xsession"
+elif [ -x /etc/X11/xinit/Xsession ]; then
+    SESSIONBIN="/etc/X11/xinit/Xsession"
+elif [ -x /etc/gdm3/Xsession ]; then
+    SESSIONBIN="/etc/gdm3/Xsession"
+elif [ -x /etc/X11/gdm/Xsession ]; then
+    SESSIONBIN="/etc/X11/gdm/Xsession gnome-session"
+elif [ -x /etc/gdm/Xsession ]; then
+    SESSIONBIN="/etc/gdm/Xsession gnome-session"
+elif [ -x /etc/kde/kdm/Xsession ]; then
+    SESSIONBIN="/etc/kde/kdm/Xsession"
+fi
+
+if [ "${SESSIONBIN}" = "" ]; then
+    echo "No session found, launching terminal..."
+    ${XTERM_COMMAND}
+else
+    echo "Starting session: ${SESSIONBIN}"
+    ${SESSIONBIN}
+fi

@@ -1,0 +1,14 @@
+[groups]
+; Example:
+; group:testgroup = actor1, actor2, actor3
+
+[aliases]
+; Example:
+; testalias = display, clipboard-copy, clipboard-paste, file-download, file-upload, mouse, keyboard, audio-in, audio-out, printer, usb, smartcard
+
+[permissions]
+; Example:
+; %owner% allow builtin
+; %any% deny clipboard-copy clipboard-paste smartcard
+; actor allow display
+; group:testgroup disallow testalias
