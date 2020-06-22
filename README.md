@@ -7,8 +7,9 @@ docs is available at the official [AWS NICE Documentation Portal](https://docs.a
 It has my private config, they are here for reference for everyone who wants to play with AWS NICE.
 If you want to contact me I am [@mastrolinux](https://twitter.com/mastrolinux) on Twitter
 
-
 ## How to install the AMI for AWS Marketplace
+
+You can install [Ubuntu 18.04 by using the using my AMI on the AWS Marketplace](https://aws.amazon.com/marketplace/pp/B088P8WCBV/)
 
 To install the AMI you will need to allow the license (free from AWS) to be fetched from a specific S3 repo.
 
@@ -54,3 +55,21 @@ VisualID 38, 0x26
 47839 frames in 5.0 seconds = 9567.710 FPS
 48198 frames in 5.0 seconds = 9639.454 FPS
 ```
+
+## Using The CloudFormation Template
+
+The new CloudFormation Template version has the ability to automatically configure the NICE DCV license for you (it is freely provided by Amazon AWS).
+
+During the setup you can choose some parameters:
+
+    * VPC
+    * Subnet
+    * CIDR Block for accessing the VM
+    * Instance Type
+    * Key pair (for SSH access)
+    * Password (for the default ubuntu user)
+
+The template will automatically install the NICE DCV License by accessing an S3 file provided by Amazon AWS.
+
+You can select the options as in the 
+![CloudFormation Templage Form image](./images/cfn-template.jpg)
